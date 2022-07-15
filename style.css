@@ -1,0 +1,32 @@
+:root {
+    --gridSize: 700px;
+  }
+
+body {
+    background-color: white;
+}
+
+.border {
+    height: var(--gridSize);
+    width: var(--gridSize);
+    background-color: black;
+    padding: 5px;
+}
+
+.container {
+    display: flex;
+    height: var(--gridSize);
+    width: var(--gridSize);
+    background-color: red;
+    padding: 0px;
+    margin: 0px;
+    flex: auto;
+    flex-wrap: wrap;
+}
+
+.box {
+    padding: 0px;
+    margin: 0px;
+    background-color: white;
+    flex: auto;
+}
