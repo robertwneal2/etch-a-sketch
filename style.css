@@ -9,7 +9,7 @@ body {
 .border {
     height: var(--gridSize);
     width: var(--gridSize);
-    background-color: black;
+    background-color: grey;
     padding: 5px;
 }
 

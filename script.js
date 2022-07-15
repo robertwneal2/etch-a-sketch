@@ -10,11 +10,14 @@ function generateGrid(val = 25) {
     let boxHeight = totHeight/gridX
     for (; i < gridTot; i++) { //create grid
         const box = document.createElement('div')
+        const rgb1 = Math.floor((Math.random() * Math.floor(256)))
+        const rgb2 = Math.floor((Math.random() * Math.floor(256)))
+        const rgb3 = Math.floor((Math.random() * Math.floor(256)))
         box.classList.add('box')
         box.style.width = `${boxWidth}px`
         box.style.height = `${boxHeight}px`
         box.addEventListener('mouseover', () => {
-            box.style.backgroundColor = "blue"
+            box.style.backgroundColor = `rgb(${rgb1}, ${rgb2}, ${rgb3})`
         })
         container.appendChild(box)
     }
