@@ -30,3 +30,7 @@ body {
     background-color: white;
     flex: auto;
 }
+
+.button {
+    margin: 5px;
+}
