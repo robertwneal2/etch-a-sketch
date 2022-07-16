@@ -10,15 +10,10 @@ function generateGrid(val = 25) {
     let boxHeight = totHeight/gridX
     for (; i < gridTot; i++) { //create grid
         const box = document.createElement('div')
-        const rgb1 = Math.floor((Math.random() * Math.floor(256)))
-        const rgb2 = Math.floor((Math.random() * Math.floor(256)))
-        const rgb3 = Math.floor((Math.random() * Math.floor(256)))
         box.classList.add('box')
         box.style.width = `${boxWidth}px`
         box.style.height = `${boxHeight}px`
-        box.addEventListener('mouseover', () => {
-            box.style.backgroundColor = `rgb(${rgb1}, ${rgb2}, ${rgb3})`
-        })
+        box.addEventListener('mouseover', changeBoxColor)
         container.appendChild(box)
     }
 }
@@ -42,6 +37,36 @@ function updateGrid() {
         clearGrid()
         generateGrid(input)
     }
+}
+
+function changeBoxColor(e) {
+    let rgbArr = []
+    let i = 0
+    let currentRgb = this.style.backgroundColor
+    if (!currentRgb) { //if color blank, set to new one
+        for (; i < 3; i++) {
+            rgbArr[i] = Math.floor((Math.random() * Math.floor(256)))
+        }
+    } else {
+        rgbArr = darkenRgb(currentRgb)
+    }
+    this.style.backgroundColor = `rgb(${rgbArr[0]}, ${rgbArr[1]}, ${rgbArr[2]})`
+}
+
+function darkenRgb(rgb) {
+    let rgbArr = rgb.slice(
+        rgb.indexOf("(") + 1, 
+        rgb.indexOf(")")
+    ).split(", ");
+    let darkRbgArr = rgbArr.map(color => {
+        color = parseInt(color)
+        color -= 25;
+        if (color < 0) {
+            color = 0
+        }
+        return color
+    })
+    return darkRbgArr
 }
 
 updateButton = document.querySelector(".button")
