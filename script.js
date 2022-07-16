@@ -16,6 +16,8 @@ function generateGrid(val = 25) {
         box.addEventListener('mouseover', changeBoxColor)
         container.appendChild(box)
     }
+    let gridSizeText = document.querySelector('.gridSize')
+    gridSizeText.textContent = `${gridX} x ${gridX}`
 }
 
 function clearGrid() {
